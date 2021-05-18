@@ -6,6 +6,13 @@ const bodyparser = require('body-parser');
 
 const app = express();
 
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({ extended: true }));
+
+if (process.env.ENV === 'dev') {
+  app.use(morgan('dev'));
+}
+
 app.get('/health', (req, res) => {
   res.send('Server OK!');
 });
