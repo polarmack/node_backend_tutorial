@@ -4,7 +4,8 @@
   "description": "nodejs backend tutorial for internship",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon app.js",
+    "start": "node app.js"
   },
   "author": "Kunanon Eungprasert",
   "license": "ISC",
@@ -15,5 +16,8 @@
     "express-async-error": "0.0.2",
     "helmet": "^4.6.0",
     "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }
