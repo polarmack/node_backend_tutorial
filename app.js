@@ -3,6 +3,7 @@ require('./config_env');
 const express = require('express');
 const morgan = require('morgan');
 const bodyparser = require('body-parser');
+const echoRouter = require('./controller/echo');
 
 const app = express();
 
@@ -16,6 +17,8 @@ if (process.env.ENV === 'dev') {
 app.get('/health', (req, res) => {
   res.send('Server OK!');
 });
+
+app.use('/echo', echoRouter);
 
 const PORT = process.env.PORT || 3000;
 
