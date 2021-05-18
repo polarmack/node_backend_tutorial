@@ -1,0 +1,19 @@
+{
+  "name": "node_backend_tutorial",
+  "version": "1.0.0",
+  "description": "nodejs backend tutorial for internship",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kunanon Eungprasert",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "express-async-error": "0.0.2",
+    "helmet": "^4.6.0",
+    "morgan": "^1.10.0"
+  }
+}
