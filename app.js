@@ -3,10 +3,16 @@ require('./config_env');
 const express = require('express');
 const morgan = require('morgan');
 const bodyparser = require('body-parser');
+const { connectDB, disconnectDB } = require('./utils/db');
 const echoRouter = require('./controller/echo');
 
+// Initialize express
 const app = express();
 
+// Connect to database
+connectDB();
+
+// Use Middleware stack
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 
