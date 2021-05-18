@@ -5,9 +5,11 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyparser = require('body-parser');
 const { connectDB, disconnectDB } = require('./utils/db');
+const cookieParser = require('cookie-parser');
 const errorHandler = require('./middlewares/error_handler');
 const echoRouter = require('./controllers/echo');
 const todoRouter = require('./controllers/todo');
+const authRouter = require('./controllers/auth');
 
 // Initialize express
 const app = express();
@@ -18,6 +20,7 @@ connectDB();
 // Use Middleware stack
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 if (process.env.ENV === 'dev') {
   app.use(morgan('dev'));
@@ -28,8 +31,9 @@ app.get('/health', (req, res) => {
 });
 
 // Use router
-app.use('/echo', echoRouter);
-app.use('/todos', todoRouter);
+app.use('/app/echo', echoRouter);
+app.use('/app/todos', todoRouter);
+app.use('/app/auth', authRouter);
 
 // error handler
 app.use((req, res, next) => res.status(404).json({ error: 'page not found' }));
