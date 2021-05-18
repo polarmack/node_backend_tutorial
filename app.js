@@ -4,7 +4,8 @@ require('express-async-errors');
 const express = require('express');
 const morgan = require('morgan');
 const bodyparser = require('body-parser');
-const { connectDB, disconnectDB } = require('./utils/db');
+const cors = require('cors');
+const { connectDB } = require('./utils/db');
 const cookieParser = require('cookie-parser');
 const errorHandler = require('./middlewares/error_handler');
 const echoRouter = require('./controllers/echo');
@@ -21,6 +22,7 @@ connectDB();
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(cors({ origin: true }));
 
 if (process.env.ENV === 'dev') {
   app.use(morgan('dev'));
