@@ -6,10 +6,10 @@ router.get('/echo_get', (req, res) => {
 
 router.get('/echo_qs', (req, res) => {
   const query = req.query;
-  res.json({ query });
+  res.json(query);
 });
 
-router.get('/echo_param/:message', (req, res) => {
+router.get('/echo_params/:message', (req, res) => {
   const message = req.params.message;
   res.json({ params: message });
 });
@@ -17,7 +17,7 @@ router.get('/echo_param/:message', (req, res) => {
 router.post('/echo_post', (req, res) => {
   // req.body parse from body-parser middleware
   const body = req.body;
-  res.json({ body });
+  res.json(body);
 });
 
 module.exports = router;
