@@ -4,8 +4,8 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyparser = require('body-parser');
 const { connectDB, disconnectDB } = require('./utils/db');
-const echoRouter = require('./controller/echo');
-
+const echoRouter = require('./controllers/echo');
+const todoRouter = require('./controllers/todo');
 // Initialize express
 const app = express();
 
@@ -25,6 +25,7 @@ app.get('/health', (req, res) => {
 });
 
 app.use('/echo', echoRouter);
+app.use('/todos', todoRouter);
 
 const PORT = process.env.PORT || 3000;
 
