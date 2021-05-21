@@ -10,19 +10,20 @@ const tokenHandler = async (req, res, next) => {
     console.log('T1');
     token = authHeader.slice(7, authHeader.length);
   } else if (req.cookies.token) {
-    // token = req.cookies.token;
+    console.log('T2');
+    token = req.cookies.token;
   }
 
-  if (!token) res.status(401).json({ error: 'token is not valid' });
+  if (!token)
+    return res.status(401).json({ error: 'token is not valid', data: {} });
 
   try {
     let decode = await jwt.verify(token, process.env.JWT_SECRET);
 
     req.user = await User.findById(decode.user_id);
-    console.log(req.user);
     next();
   } catch (e) {
-    res.status(401).json({ error: 'token is not valid' });
+    res.status(401).json({ error: 'token is not valid', data: {} });
   }
 };
 

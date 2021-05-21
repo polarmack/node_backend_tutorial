@@ -9,7 +9,8 @@ const { connectDB } = require('./utils/db');
 const cookieParser = require('cookie-parser');
 const errorHandler = require('./middlewares/error_handler');
 const echoRouter = require('./controllers/echo');
-const todoRouter = require('./controllers/todo');
+const noAuthTodoRouter = require('./controllers/noauth_todo');
+const authTodoRouter = require('./controllers/auth_todo');
 const authRouter = require('./controllers/auth');
 
 // Initialize express
@@ -34,7 +35,8 @@ app.get('/health', (req, res) => {
 
 // Use router
 app.use('/app/echo', echoRouter);
-app.use('/app/todos', todoRouter);
+app.use('/app/no_auth/todos', noAuthTodoRouter);
+app.use('/app/with_auth/todos', authTodoRouter);
 app.use('/app/auth', authRouter);
 
 // error handler

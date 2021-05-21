@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const TodoSchema = new mongoose.Schema({
-  order: { type: Number, default: 1 },
+  order: { type: Number, default: 1, immutable: true },
   title: { type: String, required: [true, 'Please add a title'] },
   createdAt: { type: Date, default: new Date() },
 });
