@@ -7,10 +7,8 @@ const tokenHandler = async (req, res, next) => {
   let authHeader = req.headers['authorization'];
 
   if (authHeader && authHeader.startsWith('Bearer')) {
-    console.log('T1');
     token = authHeader.slice(7, authHeader.length);
   } else if (req.cookies.token) {
-    console.log('T2');
     token = req.cookies.token;
   }
 
