@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const Todo = require('../models/Todo');
+const Todo = require('../../db/schema/Todo');
 
 router.get('/', async (req, res) => {
   const todos = await Todo.find();
 
-  res.json({ succes: true, count: todos.length, data: todos });
+  res.json({ success: true, count: todos.length, data: todos });
 });
 
 router.get('/:id', async (req, res) => {
@@ -17,13 +17,13 @@ router.get('/:id', async (req, res) => {
     });
   }
 
-  res.json({ succes: true, data: todo });
+  res.json({ success: true, data: todo });
 });
 
 router.post('/', async (req, res) => {
   const todo = await Todo.create(req.body);
 
-  res.json({ succes: true, data: todo });
+  res.json({ success: true, data: todo });
 });
 
 router.put('/:id', async (req, res) => {
@@ -39,7 +39,7 @@ router.put('/:id', async (req, res) => {
     });
   }
 
-  res.json({ succes: true, data: updateTodo });
+  res.json({ success: true, data: updateTodo });
 });
 
 router.delete('/:id', async (req, res) => {
@@ -52,7 +52,7 @@ router.delete('/:id', async (req, res) => {
     });
   }
 
-  res.json({ succes: true, data: {} });
+  res.json({ success: true, data: {} });
 });
 
 module.exports = router;

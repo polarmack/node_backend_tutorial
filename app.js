@@ -5,13 +5,13 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyparser = require('body-parser');
 const cors = require('cors');
-const { connectDB } = require('./utils/db');
+const { connectDB } = require('./db/connect');
 const cookieParser = require('cookie-parser');
-const errorHandler = require('./middlewares/error_handler');
-const echoRouter = require('./controllers/echo');
-const noAuthTodoRouter = require('./controllers/noauth_todo');
-const authTodoRouter = require('./controllers/auth_todo');
-const authRouter = require('./controllers/auth');
+const errorHandler = require('./shared/middlewares/error_handler');
+const echoRouter = require('./node_app/controllers/echo');
+const noAuthTodoRouter = require('./node_app/controllers/noauth_todo');
+const authTodoRouter = require('./node_app/controllers/auth_todo');
+const authRouter = require('./node_app/controllers/auth');
 
 // Initialize express
 const app = express();

@@ -1,11 +1,11 @@
 const router = (module.exports = require('express').Router());
-const Todo = require('../models/Todo');
-const tokenHandler = require('../middlewares/auth');
+const Todo = require('../../db/schema/Todo');
+const tokenHandler = require('../../shared/middlewares/auth');
 
 router.post('/', tokenHandler, async (req, res) => {
   const todo = await Todo.create(req.body);
 
-  res.json({ succes: true, data: todo });
+  res.json({ successs: true, data: todo });
 });
 
 router.put('/:id', tokenHandler, async (req, res) => {
@@ -21,7 +21,7 @@ router.put('/:id', tokenHandler, async (req, res) => {
     });
   }
 
-  res.json({ succes: true, data: updateTodo });
+  res.json({ success: true, data: updateTodo });
 });
 
 router.delete('/:id', tokenHandler, async (req, res) => {
@@ -34,5 +34,5 @@ router.delete('/:id', tokenHandler, async (req, res) => {
     });
   }
 
-  res.json({ succes: true, data: {} });
+  res.json({ success: true, data: {} });
 });

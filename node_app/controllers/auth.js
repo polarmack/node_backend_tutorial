@@ -1,7 +1,7 @@
 const router = require('express').Router();
-const User = require('../models/User');
-const scrypt = require('../utils/scrypt');
-const tokenHandler = require('../middlewares/auth');
+const User = require('../../db/schema/User');
+const scrypt = require('../../shared/utils/scrypt');
+const tokenHandler = require('../../shared/middlewares/auth');
 
 router.post('/register', async (req, res) => {
   const { name, email, password } = req.body;

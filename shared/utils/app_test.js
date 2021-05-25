@@ -1,10 +1,11 @@
-require('../config_env');
+require('../../config_env');
 require('express-async-errors');
 
 const express = require('express');
 const bodyParser = require('body-parser');
 const errorHandler = require('../middlewares/error_handler');
-const { connectDB, disconnectDB } = require('./db');
+const mongoose = require('mongoose');
+const { connectDB, disconnectDB } = require('../../db/connect');
 
 module.exports = (controller) =>
   express()
@@ -17,4 +18,6 @@ beforeAll(async () => {
   await connectDB();
 });
 
-afterAll(async () => await disconnectDB());
+afterAll(async () => {
+  await disconnectDB();
+});

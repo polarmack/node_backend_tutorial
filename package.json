@@ -19,6 +19,7 @@
     "express-async-errors": "^3.1.1",
     "helmet": "^4.6.0",
     "jsonwebtoken": "^8.5.1",
+    "mockgoose": "^8.0.4",
     "mongoose": "^5.12.9",
     "morgan": "^1.10.0",
     "scrypt-nonce-wrapper": "^1.1.0"

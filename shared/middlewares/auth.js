@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+const User = require('../../db/schema/User');
 
 const tokenHandler = async (req, res, next) => {
   let token;
