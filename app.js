@@ -4,10 +4,12 @@ require('express-async-errors');
 const express = require('express');
 const morgan = require('morgan');
 const bodyparser = require('body-parser');
+const helmet = require('helmet');
 const cors = require('cors');
 const { connectDB } = require('./db/connect');
 const cookieParser = require('cookie-parser');
 const errorHandler = require('./shared/middlewares/error_handler');
+const schemaInjection = require('./shared/middlewares/schema_injection');
 const echoRouter = require('./node_app/controllers/echo');
 const noAuthTodoRouter = require('./node_app/controllers/noauth_todo');
 const authTodoRouter = require('./node_app/controllers/auth_todo');
@@ -23,6 +25,8 @@ connectDB();
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(helmet({ dnsPrefetchControl: false }));
+app.use(schemaInjection);
 app.use(cors({ origin: true }));
 
 if (process.env.ENV === 'dev') {

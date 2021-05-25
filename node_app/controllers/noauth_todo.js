@@ -1,14 +1,13 @@
 const router = require('express').Router();
-const Todo = require('../../db/schema/Todo');
 
 router.get('/', async (req, res) => {
-  const todos = await Todo.find();
+  const todos = await req.db.Todo.find();
 
   res.json({ success: true, count: todos.length, data: todos });
 });
 
 router.get('/:id', async (req, res) => {
-  const todo = await Todo.findById(req.params.id);
+  const todo = await req.db.Todo.findById(req.params.id);
 
   if (!todo) {
     return res.status(400).json({
@@ -21,16 +20,20 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  const todo = await Todo.create(req.body);
+  const todo = await req.db.Todo.create(req.body);
 
   res.json({ success: true, data: todo });
 });
 
 router.put('/:id', async (req, res) => {
-  const updateTodo = await Todo.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true,
-  });
+  const updateTodo = await req.db.Todo.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    {
+      new: true,
+      runValidators: true,
+    }
+  );
 
   if (!updateTodo) {
     return res.status(400).json({
@@ -43,7 +46,7 @@ router.put('/:id', async (req, res) => {
 });
 
 router.delete('/:id', async (req, res) => {
-  const todo = await Todo.findByIdAndDelete(req.params.id);
+  const todo = await req.db.Todo.findByIdAndDelete(req.params.id);
 
   if (!todo) {
     return res.status(400).json({

@@ -19,10 +19,13 @@
     "express-async-errors": "^3.1.1",
     "helmet": "^4.6.0",
     "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
     "mockgoose": "^8.0.4",
     "mongoose": "^5.12.9",
     "morgan": "^1.10.0",
-    "scrypt-nonce-wrapper": "^1.1.0"
+    "scrypt-nonce-wrapper": "^1.1.0",
+    "seed-random": "^2.2.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "jest": "^26.6.3",
