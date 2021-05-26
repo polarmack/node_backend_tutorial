@@ -5,7 +5,7 @@ const tokenHandler = require('../../shared/middlewares/auth');
 router.post('/', tokenHandler, async (req, res) => {
   const todo = await Todo.create(req.body);
 
-  res.json({ successs: true, data: todo });
+  res.status(200).json({ successs: true, data: todo });
 });
 
 router.put('/:id', tokenHandler, async (req, res) => {
@@ -21,7 +21,7 @@ router.put('/:id', tokenHandler, async (req, res) => {
     });
   }
 
-  res.json({ success: true, data: updateTodo });
+  res.status(200).json({ success: true, data: updateTodo });
 });
 
 router.delete('/:id', tokenHandler, async (req, res) => {
@@ -34,5 +34,5 @@ router.delete('/:id', tokenHandler, async (req, res) => {
     });
   }
 
-  res.json({ success: true, data: {} });
+  res.status(200).json({ success: true, data: {} });
 });
