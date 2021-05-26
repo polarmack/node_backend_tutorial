@@ -30,7 +30,6 @@ module.exports.mockDb = (collection, data) => {
   if (!data) mockDb[collection] = [];
   else if (Array.isArray(data)) mockDb[collection] = data;
   else mockDb[collection] = [data];
-  console.log(mockDb);
 };
 
 const mockDBMiddleware = () => {

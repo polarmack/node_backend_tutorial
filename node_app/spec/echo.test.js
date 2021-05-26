@@ -3,7 +3,7 @@ const App = require('../../shared/utils/app_test');
 const controller = require('../controllers/echo');
 
 describe('echo', () => {
-  describe('GET /echo_get', () => {
+  describe('GET /echo/echo_get', () => {
     const url = '/echo_get';
 
     it('get echo message', async () => {
@@ -13,7 +13,7 @@ describe('echo', () => {
     });
   });
 
-  describe('GET /echo_qs', () => {
+  describe('GET /echo/echo_qs', () => {
     const url = '/echo_qs?me=noob';
 
     it('get echo querystring', async () => {
@@ -23,7 +23,7 @@ describe('echo', () => {
     });
   });
 
-  describe('GET /echo_params', () => {
+  describe('GET /echo/echo_params', () => {
     const url = '/echo_params/20';
 
     it('get echo params', async () => {
@@ -33,7 +33,7 @@ describe('echo', () => {
     });
   });
 
-  describe('POST /echo_post', () => {
+  describe('POST /echo/echo_post', () => {
     const url = '/echo_post';
     const body = { me: 'noob' };
 
