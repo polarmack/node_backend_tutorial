@@ -21,7 +21,7 @@
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
     "mockgoose": "^8.0.4",
-    "mongoose": "^5.12.9",
+    "mongoose": "^6.4.6",
     "morgan": "^1.10.0",
     "scrypt-nonce-wrapper": "^1.1.0",
     "seed-random": "^2.2.0",
