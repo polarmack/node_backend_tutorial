@@ -22,7 +22,7 @@
     "lodash": "^4.17.21",
     "mockgoose": "^8.0.4",
     "mongoose": "^5.12.9",
-    "morgan": "^1.10.0",
+    "morgan": "^1.10.1",
     "scrypt-nonce-wrapper": "^1.1.0",
     "seed-random": "^2.2.0",
     "uuid": "^8.3.2"
