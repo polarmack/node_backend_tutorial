@@ -19,7 +19,7 @@
     "express-async-errors": "^3.1.1",
     "helmet": "^4.6.0",
     "jsonwebtoken": "^8.5.1",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "mockgoose": "^8.0.4",
     "mongoose": "^5.12.9",
     "morgan": "^1.10.0",
